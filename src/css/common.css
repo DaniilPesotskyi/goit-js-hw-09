@@ -16,3 +16,35 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* 01-color-switcher */
+
+.buttons {
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  gap: 30px
+}
+
+button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+
+  padding: 10px 60px;
+  background-color: #C0C0C0;
+  border: 0;
+
+  cursor: pointer;
+
+  font-size: 17px;
+  line-height: 21px;
+
+  transition: background 250ms;
+}
+
+button:hover,
+button:focus {
+  background-color: #E2E2E2;
+}
