@@ -45,21 +45,23 @@ class Timer {
     }
     this.active = true
     refs.dateTimeInput.setAttribute('disabled', 'disabled')
-    console.log('Starting')
 
     this.intervalId = setInterval(() => {
       let deltaTime = selectedDate - Date.now()
       this.onTimerFinish(deltaTime, this.intervalId)
-      console.log(deltaTime)
       this.updateClockFace(this.convertMs(deltaTime))
     }, 1000)
   }
 
   updateClockFace({ days, hours, minutes, seconds }) {
-    clockFaceRefs.days.textContent = String(days).padStart(2, '0');
-    clockFaceRefs.hours.textContent = String(hours).padStart(2, '0');
-    clockFaceRefs.minutes.textContent = String(minutes).padStart(2, '0');
-    clockFaceRefs.seconds.textContent = String(seconds).padStart(2, '0');
+    clockFaceRefs.days.textContent = this.addLeadingZero(days);
+    clockFaceRefs.hours.textContent = this.addLeadingZero(hours);
+    clockFaceRefs.minutes.textContent = this.addLeadingZero(minutes);
+    clockFaceRefs.seconds.textContent = this.addLeadingZero(seconds);
+  }
+
+  addLeadingZero(value) {
+    return String(value).padStart(2, '0')
   }
 
   convertMs(ms) {
